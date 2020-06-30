@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/springbootdemo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springbootfreemarker" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springbootjsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbootthymeleaf" charset="UTF-8" />
   </component>
 </project>
