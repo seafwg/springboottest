@@ -8,5 +8,78 @@
   <p th:text="seafwg"></p>
   <br>
   <p th:text="${msg}"></p>
+  <p th:text="${#dates.format(date)}"></p>
+  <p th:text="${#dates.format(date, 'yyy/MM/dd')}"></p>
+  <p th:if=" ${sex} =='男' ">性别：男</p>
+  <p th:else=" ${sex} !='男' ">性别：女</p>
+  <table border="1" width="50%">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr th:each="u:${list}">
+      <td th:text="${u.id}"></td>
+      <td th:text="${u.name}"></td>
+      <td th:text="${u.age}"></td>
+    </tr>
+  </table>
+  <br>
+  <table border="1" width="50%">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Index</th>
+      <th>Count</th>
+      <th>Size</th>
+      <th>Odd</th>
+      <th>Even</th>
+      <th>First</th>
+      <th>Last</th>
+    </tr>
+    <tr th:each="u,state:${list}">
+      <td th:text="${u.id}"></td>
+      <td th:text="${u.name}"></td>
+      <td th:text="${u.age}"></td>
+      <td th:text="${state.index}"></td>
+      <td th:text="${state.count}"></td>
+      <td th:text="${state.size}"></td>
+      <td th:text="${state.odd}"></td>
+      <td th:text="${state.even}"></td>
+      <td th:text="${state.first}"></td>
+      <td th:text="${state.last}"></td>
+    </tr>
+  </table>
+  <br>
+  <table border="1" width="50%">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Key</th>
+    </tr>
+    <tr th:each="map:${map}">
+      <td th:text="${map.value.id}"></td>
+      <td th:text="${map.value.name}"></td>
+      <td th:text="${map.value.age}"></td>
+      <td th:text="${map.key}"></td>
+    </tr>
+  </table>
+  <hr>
+  HttpServletRequest: <br>
+                      <span th:text="${#httpServletRequest.getAttribute('req')}"></span>
+                      <span th:text="${#request.getAttribute('req')}"></span>
+  <hr>
+  HttpSession: <br>
+               <span th:text="${#httpSession.getAttribute('session')}"></span>
+               <span th:text="${session.session}"></span>
+  <hr>
+  ServletContext: <br>
+               <span th:text="${#servletContext.getAttribute('app')}"></span>
+               <span th:text="${application.app}"></span>
+
+  <a th:href="@{/show1(id='1',name='seafwg')}">普通URL传参</a>
+  <a th:href="@{/show2/{id}/{name}(id=100,name='seafwg')}">RESTful风格URL传参</a>
 </body>
 </html>
